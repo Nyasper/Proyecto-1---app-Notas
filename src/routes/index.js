@@ -1,20 +1,36 @@
-import { RouteRecordRaw, createRouter,createWebHistory } from "vue-router"
+import { createRouter,createWebHistory } from "vue-router"
+
+//componentes
+import taskList from '../components/taskList.vue'
+import taskDetail from '../components/taskDetail.vue'
+import taskForm from '../components/taskForm.vue'
+import about from '../components/about.vue'
+import notFound from '../components/notfound.vue'
+
 
 const routes = [
   {
     path:'/',
     name:'tasks',
-    component:()=> import('../components/taskList.vue')
+    component:taskList
   },
   {
     path:'/tasks/new',
     name:'task-new',
-    component:()=> import('../components/taskForm.vue')
+    component:taskForm
   },
   {
     path:'/tasks/:id',
     name:'task-detail',
-    component:()=> import('../components/taskDetail.vue')
+    component:taskDetail
+  },
+  {
+    path:'/about',
+    component:about
+  },
+  {
+    path:'/:patchMatch(.*)*',
+    component:notFound
   }
 ]
 

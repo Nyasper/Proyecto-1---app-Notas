@@ -1,15 +1,26 @@
 <script setup>
-
+import navbar from './components/navbar.vue';
 
 </script>
 
+
 <template>
-  <h1>hola aca</h1>
-<RouterLink to="/tasks/new"></RouterLink>
-
-
+<navbar></navbar>
+<Suspense>
+<RouterView />
+</Suspense>
 </template>
 
 <style>
+*{
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color:white;
+}
 
+body{
+  background-color: rgb(46, 46, 46);
+}
 </style>
