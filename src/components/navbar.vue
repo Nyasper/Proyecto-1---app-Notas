@@ -2,7 +2,7 @@
 <nav >
   <ul id="nav-container">
     <li id="li-container">
-      <img src="/Hare_Icon.webp" alt="">
+      <img src="/Hare_Icon.webp" alt="hare-icon">
       <router-link to="/">All Tasks</router-link>
       <router-link to="/tasks/new">Create Note</router-link>
       <router-link id="about" to="/about">About</router-link>
@@ -34,6 +34,7 @@
     height: 100%;
     width: max-content;
     background-color: rgb(27, 27, 27);
+    border-radius: 20px;
   }
 
   #li-container a{
@@ -41,7 +42,7 @@
     padding: 2px 8px;
     margin: 0 20px;
     border-bottom: 2px rgba(0, 0, 0, 0) solid;
-    border-radius: 10%;
+    border-radius: 8px;
   }
 
   #li-container a:hover{
