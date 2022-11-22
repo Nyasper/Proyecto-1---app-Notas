@@ -42,7 +42,6 @@ function cancel(){
   task.title.value = orgininalTask.title
   task.description.value = orgininalTask.description
 }
-
 </script>
 
 <template>
@@ -53,9 +52,14 @@ function cancel(){
     <input type="text" v-model="task.title.value" @submit="mostarTexto" id="input-title" placeholder="Update Title">
     <textarea id="input-description" v-model="task.description.value" placeholder="Update Description"></textarea>
     <div id="button-container" >
-    <button id="saveButton">Update</button>
-    <button id="cancelButton" @click.prevent="cancel">Cancel</button>
-    <button id="deleteButton" @click.prevent="deleteTask">Delete</button>
+    <button id="saveButton" 
+    :disabled="!task.title.value || !task.description.value || task.title.value === orgininalTask.title && task.description.value === orgininalTask.description  "
+    >Update</button>
+    <button id="cancelButton" @click.prevent="cancel" 
+    :disabled="task.title.value === orgininalTask.title && task.description.value === orgininalTask.description " >Cancel</button>
+    <button id="deleteButton" @click.prevent="deleteTask"
+    :disabled="task.title.value !== orgininalTask.title || task.description.value !== orgininalTask.description"
+    >Delete</button>
   </div>
   </form>
   <taskComponent id="taskMain" :title='task.title' :description='task.description' />

@@ -2,9 +2,9 @@
   <div id="taskFormContainer">
   <form @submit.prevent="saveTask" id="taskForm">
     <h2>Add a Note</h2>
-    <input type="text" placeholder="Add a Title" v-model="title" id="input-title">
-    <textarea  id="input-description" placeholder="Add a Description" v-model="description" ></textarea>
-    <button id="saveButton" push="/">Save</button>
+    <input type="text" placeholder="Add a Title" v-model="title" id="input-title" required>
+    <textarea  id="input-description" placeholder="Add a Description" v-model="description" required ></textarea>
+    <button id="saveButton" push="/" :disabled="!title || !description">Save</button>
   </form>
   <taskComponent :title='title' :description="description" id="addNote" />
 </div>
@@ -127,6 +127,15 @@ async function saveTask(){
 #cancelButton:hover{
   background-color: rgb(57, 57, 57);
 
+}
+
+
+#saveButton:disabled,
+#deleteButton:disabled,
+#cancelButton:disabled{
+  background-color: rgba(0, 0, 0, 0.456);
+  border: none;
+  color: rgb(64, 64, 64);
 }
 
 
